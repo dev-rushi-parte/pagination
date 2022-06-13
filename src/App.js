@@ -10,7 +10,11 @@ export default function App() {
   const [pageLimit] = useState(10);
 
 
+  const sorting = () => {
+    data.sort((a, b) => (a.population > b.population) ? 1 : -1)
 
+
+  }
 
   const prev = () => {
     if (currentpage > 0) {
@@ -76,7 +80,11 @@ export default function App() {
           */}
         {data.map((item) => {
           return (
+
             <CityRow key={item.id} {...item} />
+
+
+
           )
         })}
 
@@ -84,7 +92,7 @@ export default function App() {
       </table>
 
       <div>
-        <ButtonComponent id="SORT_BUTTON" title={`Sort by Increasing Population`} />
+        <ButtonComponent onClick={sorting} id="SORT_BUTTON" title={`Sort by Increasing Population`} />
         <ButtonComponent onClick={prev} title="PREV" id="PREV" />
         <ButtonComponent onClick={next} id="NEXT" title="NEXT" />
       </div>
