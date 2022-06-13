@@ -42,7 +42,7 @@ export default function App() {
     try {
       return await axios
 
-        .get(`http://localhost:8080/country?_page=${s}&_limit=${e}}`).then((res) => {
+        .get(`https://json-server-mocker-masai.herokuapp.com/cities?_page=${s}&_limit=${e}}`).then((res) => {
           // console.log(res.data)
           setData(res.data)
           setCurrentpage(currentpage + i)
