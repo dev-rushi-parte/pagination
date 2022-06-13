@@ -1,0 +1,17 @@
+.button {
+  padding: 0.5rem;
+  border: 0px;
+  margin-right: 0.5rem;
+  background: rgb(237, 3, 49);
+  border-radius: 0.25rem;
+  color: white;
+  font-size: medium;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}

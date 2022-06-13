@@ -1,0 +1,11 @@
+.container {
+  border-radius: 0.5rem;
+}
+
+.container:hover {
+  box-shadow: 2px 2px #888888;
+}
+
+table{
+  margin: auto;
+}
