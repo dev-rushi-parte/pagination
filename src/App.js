@@ -1,3 +1,4 @@
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 import React, { useState } from "react";
 import ButtonComponent from "./components/ButtonComponent";
@@ -8,18 +9,20 @@ export default function App() {
   const [data, setData] = useState([]);
   const [currentpage, setCurrentpage] = useState(0);
   const [pageLimit] = useState(10);
-
+const [refresh,setRefresh]=useState(null);
 
   const sorting = () => {
     data.sort((a, b) => (a.population > b.population) ? 1 : -1)
 
-
+  setRefresh(Math.random(50));
   }
 
   const prev = () => {
     if (currentpage > 0) {
+
       pagination((currentpage - 1), pageLimit, -1)
     }
+
 
   }
   const next = () => {
@@ -93,7 +96,7 @@ export default function App() {
 
       <div>
         <ButtonComponent onClick={sorting} id="SORT_BUTTON" title={`Sort by Increasing Population`} />
-        <ButtonComponent onClick={prev} title="PREV" id="PREV" />
+        <ButtonComponent disabled={currentpage === 0} onClick={prev} title="PREV" id="PREV" />
         <ButtonComponent onClick={next} id="NEXT" title="NEXT" />
       </div>
     </div>
